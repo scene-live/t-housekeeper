@@ -38,6 +38,7 @@ body {
   font: #{$fontSize}/#{$lineHeight} 'メイリオ';
   color: map-get($colors, text);
   text-align: left;
+  background: #fffffe;
 }
 
 ol, ul {
@@ -68,3 +69,5 @@ img {
     height: auto;
   }
 }
+
+@import './_layout.scss';

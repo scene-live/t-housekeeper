@@ -5,9 +5,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <main class="contents">
+    <div class="contents">
       <router-view/>
-    </main>
+    </div>
     <Footer />
   </div>
 </template>
@@ -44,6 +44,10 @@ export default class App extends Vue {}
   }
 
   .contents {
+    padding: 20px 3%;
     min-height: 500px;
+    @media #{$not_sp} {
+      padding: 20px 0;
+    }
   }
 </style>
