@@ -1,0 +1,22 @@
+$fontSize: 1.4rem;
+$lineHeight: 1.5;
+
+$colors: (
+  base: #fff,
+  main: #bae8e8,
+  heighlight: #ffd803,
+  text: #111,
+  anchor: rgb(39, 35, 67),
+);
+
+$inner: 1120px;
+
+$sp: "only screen and (max-width: 767px)";
+$not_sp: "only screen and (min-width: 768px)";
+
+
+@mixin inner {
+  width: 100%;
+  max-width: $inner;
+  margin: 0 auto;
+}

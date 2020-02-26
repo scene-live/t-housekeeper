@@ -1,0 +1,70 @@
+body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, address, big, cite, code,
+del, dfn, em, img,
+small, strike, strong, sub, sup,
+i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import './_variables.scss';
+
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 1;
+  font-size: 62.5%;
+  vertical-align: baseline;
+}
+
+body {
+  font: #{$fontSize}/#{$lineHeight} 'メイリオ';
+  color: map-get($colors, text);
+  text-align: left;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: map-get($colors, anchor);
+  text-decoration: none;
+  transition: .3s;
+  @media #{$not_sp} {
+    &:hover {
+      opacity: .8;
+      text-decoration: underline;
+    }
+  }
+}
+
+img {
+  border: none;
+  @media #{$sp} {
+    width: 100%;
+    height: auto;
+  }
+}
