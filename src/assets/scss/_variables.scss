@@ -5,19 +5,16 @@ $colors: (
   base: #fff,
   main: #bae8e8,
   secodary: #e3f6f5,
+  tertiary: #272343,
   heighlight: #ffd803,
-  text: #111,
-  anchor: #272343,
+  text: #2d334a,
 );
 
 $inner: 1120px;
+$borderRadius: 5px;
 
 $sp: "only screen and (max-width: 767px)";
 $not_sp: "only screen and (min-width: 768px)";
-
-
-@mixin inner {
-  width: 100%;
-  max-width: $inner;
-  margin: 0 auto;
-}
+$tab: "only screen and (min-width: 768px) and (max-width: #{$inner - 1})";
+$not_pc: "only screen and (max-width: #{$inner - 1})";
+$pc: "only screen and (min-width: #{$inner})";

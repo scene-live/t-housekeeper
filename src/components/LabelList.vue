@@ -1,18 +1,23 @@
 <template>
   <ul class="label-list">
-    <li class="label-list-item">掃除</li>
-    <li class="label-list-item">洗濯</li>
-    <li class="label-list-item">料理</li>
-    <li class="label-list-item">買い物</li>
-    <li class="label-list-item is-disabled">ペットの世話</li>
+    <li
+      v-for="(job, index) in jobTypeList"
+      :key="index"
+      :class="['label-list-item', disabled.includes(job) ? 'is-disabled' : '']"
+    >
+    {{ job }}
+    </li>
   </ul>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import { jobType } from '@/data/data';
 
 @Component
 export default class LabelList extends Vue {
+  @Prop() private disabled!: string[]
 
+  jobTypeList = jobType;
 }
 </script>
 

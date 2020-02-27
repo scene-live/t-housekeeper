@@ -13,7 +13,9 @@
           />
         </div>
       </header>
-      <LabelList />
+      <LabelList
+        :disabled="disabled"
+      />
       <p class="card-comment">{{ comment }}</p>
     </a>
   </div>
@@ -38,6 +40,8 @@ export default class Card extends Vue {
   @Prop() private image!: string
 
   @Prop() private comment!: string
+
+  @Prop() private disabled!: string[]
 }
 </script>
 
@@ -76,6 +80,9 @@ export default class Card extends Vue {
       .is-small & {
         flex-basis: 100%;
       }
+      @media #{$tab} {
+        flex-basis: 100%;
+      }
     }
     &-title {
       font-size: 2rem;
@@ -91,6 +98,10 @@ export default class Card extends Vue {
       }
       img {
         border-radius: 50%;
+      }
+      @media #{$tab} {
+        flex-basis: 100%;
+        margin: 0 auto 10px;
       }
     }
   }

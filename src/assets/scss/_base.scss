@@ -24,6 +24,7 @@ time {
 }
 
 @import './_variables.scss';
+@import './mixins.scss';
 
 html {
   margin: 0;
@@ -51,7 +52,7 @@ table {
 }
 
 a {
-  color: map-get($colors, anchor);
+  color: map-get($colors, tertiary);
   text-decoration: none;
   transition: .3s;
   @media #{$not_sp} {
@@ -68,6 +69,18 @@ img {
     width: 100%;
     height: auto;
   }
+}
+
+input {
+  &[type=text],
+  &[type=email],
+  &[type=date] {
+    font-size: 1.6rem;
+  }
+}
+
+label {
+  font-size: 1.6rem;
 }
 
 @import './_layout.scss';

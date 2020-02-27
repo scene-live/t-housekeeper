@@ -1,0 +1,15 @@
+@mixin inner {
+  width: 100%;
+  max-width: $inner;
+  margin: 0 auto;
+}
+
+@mixin formElements {
+  appearance: none;
+  width: 100%;
+  font-size: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: $borderRadius;
+  padding: 8px 5px;
+  background: map-get($colors, base);
+}

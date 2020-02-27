@@ -5,7 +5,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div> -->
-    <div class="contents">
+    <div class="l-contents">
       <router-view/>
     </div>
     <Footer />
@@ -40,14 +40,6 @@ export default class App extends Vue {}
       &.router-link-exact-active {
         color: #42b983;
       }
-    }
-  }
-
-  .contents {
-    padding: 20px 3%;
-    min-height: 500px;
-    @media #{$not_sp} {
-      padding: 20px 0;
     }
   }
 </style>

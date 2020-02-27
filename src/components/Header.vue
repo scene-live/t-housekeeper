@@ -28,6 +28,7 @@ export default class Header extends Vue {}
     position: sticky;
     top: 0;
     box-shadow: 0 3px 3px -3px #ccc;
+    z-index: 1000;
     &-inner {
       display: flex;
       justify-content: space-between;
