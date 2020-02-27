@@ -7,6 +7,7 @@ import {
   faStarHalf,
   faCaretDown,
   faSearch,
+  faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
@@ -14,7 +15,7 @@ import './directive';
 import router from './router';
 import store from './store';
 
-library.add(faUser, faEnvelope, faStar, faStarHalf, faCaretDown, faSearch);
+library.add(faUser, faEnvelope, faStar, faStarHalf, faCaretDown, faSearch, faSpinner);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;

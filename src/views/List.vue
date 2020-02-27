@@ -12,6 +12,8 @@
           :comment="list.comment"
           :disabled="list.disabled"
         />
+        <Loading :isLoading="isLoading"/>
+        <div v-keeper-scroll="onScroll"></div>
       </div>
     </main>
     <aside class="l-side">
@@ -27,6 +29,15 @@ import SearchConntroller from '@/components/SearchConntroller.vue';
 import Card from '@/components/Card.vue';
 import Search from '@/components/Search.vue';
 import Select from '@/components/Select.vue';
+import Loading from '@/components/Loading.vue';
+
+interface Keeper {
+  name: string;
+  image: string;
+  comment: string;
+  disabled: string[];
+}
+
 
 @Component({
   name: 'List',
@@ -35,10 +46,45 @@ import Select from '@/components/Select.vue';
     Card,
     Search,
     Select,
+    Loading,
   },
 })
 export default class List extends Vue {
-  lists = housekeepers;
+  lists: Keeper[] = [];
+
+  scrollY = 0;
+
+  count = 8;
+
+  start = 0;
+
+  end = this.count;
+
+  isLoading = false;
+
+  mounted() {
+    this.getKeeper();
+  }
+
+  onScroll() {
+    if (window.pageYOffset >= this.scrollY && !this.isLoading) {
+      this.isLoading = true;
+      this.scrollY = window.innerHeight + window.pageYOffset;
+      window.setTimeout(this.getKeeper, 1000);
+    }
+  }
+
+  getKeeper() {
+    if (this.lists.length >= housekeepers.length) {
+      this.isLoading = false;
+      return;
+    }
+
+    this.lists = [...this.lists, ...housekeepers.slice(this.start, this.end)];
+    this.start += this.count;
+    this.end += this.count;
+    this.isLoading = false;
+  }
 }
 </script>
 
