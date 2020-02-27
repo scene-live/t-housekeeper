@@ -1,8 +1,8 @@
 <template>
   <ul class="footer-navi">
-    <li class="footer-navi-item"><a href="#">Home</a></li>
-    <li class="footer-navi-item"><a href="#">About</a></li>
-    <li class="footer-navi-item"><a href="#">List</a></li>
+    <li class="footer-navi-item"><router-link to="/">Home</router-link></li>
+    <li class="footer-navi-item"><router-link to="/about">About</router-link></li>
+    <li class="footer-navi-item"><router-link to="/list">List</router-link></li>
   </ul>
 </template>
 
@@ -23,6 +23,10 @@ export default class FooterNavi extends Vue {}
         }
         a {
           padding: 0 10px;
+          &.router-link-exact-active {
+            font-weight: bold;
+            color: #42b983;
+          }
         }
         &:first-child {
           a {

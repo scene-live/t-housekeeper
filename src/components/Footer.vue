@@ -2,11 +2,6 @@
   <footer class="footer">
     <div class="footer-inner">
       <Logo className="footer-logo" />
-      <!-- <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">List</a></li>
-      </ul> -->
       <FooterNavi />
       <CopyRight />
     </div>
@@ -35,8 +30,6 @@ export default class Footer extends Vue {}
     padding: 10px;
     &-inner {
       @include inner;
-      // display: flex;
-      // flex-wrap: wrap;
     }
   }
 </style>
