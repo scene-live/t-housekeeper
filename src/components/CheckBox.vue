@@ -44,7 +44,7 @@ export default class CheckBox extends Vue {
         border-radius: 2px;
         border: 1px solid #ccc;
         background: #fff;
-        top: 1px;
+        top: 3px;
         left: 0;
       }
       &:after {
@@ -52,7 +52,7 @@ export default class CheckBox extends Vue {
         height: 10px;
         border-bottom: 2px solid #fff;
         border-right: 2px solid #fff;
-        top: 2px;
+        top: 4px;
         left: 5px;
         transform: rotate(45deg);
         opacity: 0;

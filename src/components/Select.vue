@@ -1,6 +1,6 @@
 <template>
-  <dl :class="['select-wrap', className ? className : '']">
-    <dt><label class="select-label">{{ label}}</label></dt>
+  <dl v-if="options.length" :class="['select-wrap', className ? className : '']">
+    <dt class="select-label"><label>{{ label}}</label></dt>
     <dd class="select-icon">
       <select
         class="select"
@@ -49,11 +49,14 @@ export default class Select extends Vue {
     @include formElements;
     padding: 5px;
     &-wrap {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       &.is-horizon {
         display: flex;
         align-items: center;
       }
+    }
+    &-label {
+      font-weight: bold;
     }
     &-icon {
       cursor: pointer;

@@ -1,27 +1,28 @@
 <template>
   <div class="search">
-    検索
     <form>
-      <Select
-        name="pref"
-        label="都道府県"
-        :options="prefList"
-        @onChange="getLines"
-      />
-      <Select
-        name="line"
-        label="路線"
-        :options="lineList"
-        @onChange="getStations"
-      />
-      <Select
-        name="station"
-        label="最寄り駅"
-        :options="stationList"
-      />
-      <dl>
-        <dt>作業内容</dt>
-        <dd>
+      <div class="search-box">
+        <Select
+          name="pref"
+          label="都道府県"
+          :options="prefList"
+          @onChange="getLines"
+        />
+        <Select
+          name="line"
+          label="路線"
+          :options="lineList"
+          @onChange="getStations"
+        />
+        <Select
+          name="station"
+          label="最寄り駅"
+          :options="stationList"
+        />
+      </div>
+      <dl class="search-box">
+        <dt class="search-box-label"><label>作業内容</label></dt>
+        <dd class="search-check">
           <CheckBox
             v-for="(job, index) in jobTypeList"
             :key="index"
@@ -31,15 +32,15 @@
           />
         </dd>
       </dl>
-      <dl>
-        <dt><label>希望日</label></dt>
+      <dl class="search-box">
+        <dt class="search-box-label"><label>希望日</label></dt>
         <dd>
           <input type="date">&nbsp;〜&nbsp;<input type="date">
         </dd>
       </dl>
-      <dl>
-        <dt><label>性別</label></dt>
-        <dd>
+      <dl class="search-box">
+        <dt class="search-box-label"><label>性別</label></dt>
+        <dd class="search-check">
           <CheckBox
             v-for="(sex, index) in ['男性', '女性']"
             :key="index"
@@ -49,8 +50,8 @@
           />
         </dd>
       </dl>
-      <dl>
-        <dt><label>フリーワード</label></dt>
+      <dl class="search-box">
+        <dt class="search-box-label"><label>フリーワード</label></dt>
         <dd>
           <InputText placeholder="フリーワード" />
         </dd>
@@ -107,5 +108,25 @@ export default class Search extends Vue {
   .search {
     position: sticky;
     top: 60px;
+    &-box {
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid map-get($colors, tertiary);
+      &:last-of-type {
+        border-bottom: none;
+      }
+      &-label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+    }
+    &-check {
+      display: flex;
+      flex-wrap: wrap;
+      > * {
+        flex-basis: 50%;
+        margin-bottom: 5px;
+      }
+    }
   }
 </style>
