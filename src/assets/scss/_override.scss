@@ -1,0 +1,10 @@
+$datePickerColors:
+  (yellow, map-get($colors, heighlight)),
+  (purple, map-get($colors, tertiary)),
+  (blue, map-get($colors, main));
+
+@each $name, $color in $datePickerColors {
+  .vc-bg-#{$name}-600 {
+    background-color: $color;
+  }
+}

@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VCalendar from 'v-calendar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faUser,
@@ -17,6 +18,7 @@ import store from './store';
 
 library.add(faUser, faEnvelope, faStar, faStarHalf, faCaretDown, faSearch, faSpinner);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.use(VCalendar);
 
 Vue.config.productionTip = false;
 

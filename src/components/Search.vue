@@ -34,8 +34,24 @@
       </dl>
       <dl class="search-box">
         <dt class="search-box-label"><label>希望日</label></dt>
-        <dd>
-          <input type="date">&nbsp;〜&nbsp;<input type="date">
+        <dd class="search-date">
+          <p class="search-date-input">
+            <v-date-picker
+              :mode="dp.mode"
+              :popover="dp.popover"
+              :formats="dp.input"
+              v-model="dp.startDate">
+            </v-date-picker>
+          </p>
+          &nbsp;〜&nbsp;
+          <p class="search-date-input">
+            <v-date-picker
+              :mode="dp.mode"
+              :popover="dp.popover"
+              :formats="dp.input"
+              v-model="dp.endDate">
+            </v-date-picker>
+          </p>
         </dd>
       </dl>
       <dl class="search-box">
@@ -92,6 +108,16 @@ export default class Search extends Vue {
 
   jobTypeList: string[] = jobType;
 
+  dp = {
+    mode: 'single',
+    startDate: new Date(),
+    endDate: new Date(),
+    input: ['YYYY-MM-DD'],
+    popover: {
+      visibility: 'focus',
+    },
+  };
+
   getLines(pref: string) {
     const list = lines.filter((l) => l.pref === pref);
     this.lineList = list.length ? list[0].lines : [];
@@ -118,6 +144,14 @@ export default class Search extends Vue {
       &-label {
         font-weight: bold;
         margin-bottom: 5px;
+      }
+    }
+    &-date {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-input {
+        flex-basis: 45%;
       }
     }
     &-check {
