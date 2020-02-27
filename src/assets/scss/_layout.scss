@@ -12,15 +12,22 @@
   }
   &-main {
     width: 100%;
+    // @media #{$sp} {
+    //   order: 1;
+    // }
     @media #{$not_sp} {
       width: 70%;
     }
   }
   &-side {
     width: 100%;
-    min-height: 50vh;
     display: block;
+    // @media #{$sp} {
+    //   order: 0;
+    //   margin-bottom: 20px;
+    // }
     @media #{$not_sp} {
+      min-height: 50vh;
       width: 28%;
     }
   }

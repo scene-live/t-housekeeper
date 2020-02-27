@@ -1,14 +1,17 @@
 <template>
-  <div>
-    <button :class="['btn', className ? `btn-${className}` : '']">
-      <font-awesome-icon v-if="icon" :icon="icon" />
-      {{ label }}
-    </button>
-  </div>
+  <button
+    :class="['btn', className ? `btn-${className}` : '']"
+    @click="onClick"
+  >
+    <font-awesome-icon v-if="icon" :icon="icon" />
+    {{ label }}
+  </button>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component, Prop, Vue, Emit,
+} from 'vue-property-decorator';
 
 @Component
 export default class Button extends Vue {
@@ -17,6 +20,11 @@ export default class Button extends Vue {
   @Prop() private className!: string
 
   @Prop() private icon!: string
+
+  @Emit('onClick')
+  onClick() {
+    console.log(this.label);
+  }
 }
 </script>
 
@@ -26,6 +34,7 @@ export default class Button extends Vue {
     (secodary, map-get($colors, secodary)),
     (tertiary, map-get($colors, tertiary)),
     (heighlight, map-get($colors, heighlight)),
+    (gray, map-get($colors, #ccc)),
     (disabled, #ccc);
   .btn {
     display: block;

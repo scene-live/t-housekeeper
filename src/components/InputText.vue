@@ -1,5 +1,5 @@
 <template>
-  <input class="input" type="text" :placeholder="placeholder">
+  <input class="input" :name="name" type="text" :placeholder="placeholder">
 </template>
 
 <script lang="ts">
@@ -7,6 +7,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class InputText extends Vue {
+  @Prop() private name!: string
+
   @Prop() private placeholder!: string
 }
 </script>

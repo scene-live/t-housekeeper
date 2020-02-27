@@ -1,5 +1,12 @@
 <template>
-  <div class="search">
+  <div class="search" ref="search">
+    <p class="search-show">
+      <Button
+          label="詳細検索"
+          className="heighlight"
+          @onClick="showSearch"
+        />
+    </p>
     <form>
       <div class="search-box">
         <Select
@@ -69,14 +76,23 @@
       <dl class="search-box">
         <dt class="search-box-label"><label>フリーワード</label></dt>
         <dd>
-          <InputText placeholder="フリーワード" />
+          <InputText name="q" placeholder="フリーワード" />
         </dd>
       </dl>
-      <Button
-        label="検索"
-        className="heighlight"
-        icon="search"
-      />
+      <p class="search-btn">
+        <Button
+          label="検索"
+          className="heighlight"
+          icon="search"
+        />
+      </p>
+      <p class="search-btn is-close">
+        <Button
+          label="閉じる"
+          className="gray"
+          @onClick="closeSearch"
+        />
+      </p>
     </form>
   </div>
 </template>
@@ -127,13 +143,39 @@ export default class Search extends Vue {
     const list = stations.filter((s) => s.line === line);
     this.stationList = list.length ? list[0].stations : [];
   }
+
+  showSearch() {
+    const search = this.$refs.search as HTMLElement;
+    search.classList.add('is-shown');
+  }
+
+  closeSearch() {
+    const search = this.$refs.search as HTMLElement;
+    search.classList.remove('is-shown');
+  }
 }
 </script>
 
 <style lang="scss" scoped>
   .search {
     position: sticky;
-    top: 60px;
+    @media #{$not_sp} {
+      top: 60px;
+    }
+    @media #{$sp} {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      bottom: -100%;
+      left: 0;
+      z-index: map-get($zIndex, search);
+      background: map-get($colors, body);
+      padding: 60px 3% 10px;
+      transition: .4s;
+      &.is-shown {
+        bottom: 0;
+      }
+    }
     &-box {
       padding-bottom: 15px;
       margin-bottom: 15px;
@@ -160,6 +202,35 @@ export default class Search extends Vue {
       > * {
         flex-basis: 50%;
         margin-bottom: 5px;
+      }
+    }
+    &-show {
+      display: none;
+      @media #{$sp} {
+        display: block;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 10px 3%;
+        background: rgba(0, 0, 0, .8);
+        opacity: 1;
+        transition: opacity .4;
+        .is-shown & {
+          opacity: 0;
+        }
+      }
+    }
+    &-btn {
+      @media #{$sp} {
+        &:first-of-type {
+          margin-bottom: 15px;
+        }
+      }
+      @media #{$not_sp} {
+        &.is-close {
+          display: none;
+        }
       }
     }
   }

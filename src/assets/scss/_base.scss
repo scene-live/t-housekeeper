@@ -39,7 +39,7 @@ body {
   font: #{$fontSize}/#{$lineHeight} 'メイリオ';
   color: map-get($colors, text);
   text-align: left;
-  background: #fbfbfb;
+  background: map-get($colors, body);
 }
 
 ol, ul {

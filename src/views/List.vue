@@ -68,7 +68,7 @@ export default class List extends Vue {
 
   isLoading = false;
 
-  conditions = ['掃除', '女性', '本町駅'];
+  conditions: string[] = [];
 
   mounted() {
     this.getKeeper();
