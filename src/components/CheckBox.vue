@@ -48,11 +48,14 @@ export default class CheckBox extends Vue {
         left: 0;
       }
       &:after {
-        width: 5px;
+        width: 4px;
         height: 10px;
         border-bottom: 2px solid #fff;
         border-right: 2px solid #fff;
-        display: none;
+        top: 2px;
+        left: 5px;
+        transform: rotate(45deg);
+        opacity: 0;
       }
       .checkbox:checked + & {
         &:before {
@@ -60,11 +63,7 @@ export default class CheckBox extends Vue {
           background: map-get($colors, tertiary);
         }
         &:after {
-          display: block;
-          position: absolute;
-          top: 1px;
-          left: 4px;
-          transform: rotate(45deg);
+          opacity: 1;
         }
       }
     }
