@@ -1,6 +1,5 @@
 <template>
   <p v-if="isLoading" class="loading"><font-awesome-icon icon="spinner" /></p>
-  <!-- <p class="loading"><font-awesome-icon icon="spinner" /></p> -->
 </template>
 
 <script lang="ts">
