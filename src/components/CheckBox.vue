@@ -1,14 +1,14 @@
 <template>
-<div>
-  <input
-    type="checkbox"
-    class="checkbox"
-    :id="id"
-    :name="name"
-    :value="label"
-  />
-  <label :for="id" class="checkbox-label">{{ label }}</label>
-</div>
+  <div>
+    <input
+      type="checkbox"
+      class="checkbox"
+      :id="id"
+      :name="name"
+      :value="label"
+    />
+    <label :for="id" class="checkbox-label">{{ label }}</label>
+  </div>
 </template>
 
 <script lang="ts">
