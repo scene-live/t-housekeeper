@@ -1,5 +1,5 @@
 <template>
-  <dl class="select-wrap">
+  <dl :class="['select-wrap', className ? className : '']">
     <dt><label class="select-label">{{ label}}</label></dt>
     <dd class="select-icon">
       <select
@@ -29,6 +29,8 @@ import {
 export default class Select extends Vue {
   @Prop() private name!: string
 
+  @Prop() private className!: string
+
   @Prop() private label!: string
 
   @Prop() private options!: []
@@ -48,10 +50,19 @@ export default class Select extends Vue {
     padding: 5px;
     &-wrap {
       margin-bottom: 5px;
+      &.is-horizon {
+        display: flex;
+        align-items: center;
+      }
     }
     &-icon {
       cursor: pointer;
       position: relative;
+      font-size: 1.6rem;
+      .is-horizon & {
+        flex-basis: 10em;
+        margin-left: 1em;
+      }
       &:after {
         content: '';
         pointer-events: none;
