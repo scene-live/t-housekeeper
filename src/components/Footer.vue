@@ -31,7 +31,7 @@ export default class Footer extends Vue {}
 
 <style lang="scss" scoped>
   .footer {
-    border-top: 1px solid map-get($colors, anchor);
+    border-top: 1px solid map-get($colors, tertiary);
     padding: 10px;
     &-inner {
       @include inner;

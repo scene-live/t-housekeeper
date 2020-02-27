@@ -56,8 +56,8 @@ export default class CheckBox extends Vue {
       }
       .checkbox:checked + & {
         &:before {
-          border-color: map-get($colors, anchor);
-          background: map-get($colors, anchor);
+          border-color: map-get($colors, tertiary);
+          background: map-get($colors, tertiary);
         }
         &:after {
           display: block;
