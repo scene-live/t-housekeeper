@@ -1,6 +1,10 @@
 <template>
   <div class="list">
     <main class="l-main">
+      <SearchConditions
+        :conditions="conditions"
+        @deleteCondition="deleteCondition"
+      />
       <SearchConntroller />
       <div class="l-container">
         <Card
@@ -30,6 +34,7 @@ import Card from '@/components/Card.vue';
 import Search from '@/components/Search.vue';
 import Select from '@/components/Select.vue';
 import Loading from '@/components/Loading.vue';
+import SearchConditions from '@/components/SearchConditions.vue';
 
 interface Keeper {
   name: string;
@@ -47,6 +52,7 @@ interface Keeper {
     Search,
     Select,
     Loading,
+    SearchConditions,
   },
 })
 export default class List extends Vue {
@@ -62,8 +68,23 @@ export default class List extends Vue {
 
   isLoading = false;
 
+  conditions = ['掃除', '女性', '本町駅'];
+
   mounted() {
     this.getKeeper();
+    this.getConditions();
+  }
+
+  getConditions() {
+    const queries = window.location.search.slice(1);
+    if (!queries) return;
+
+    const conditions: string[] = [];
+    queries.split('&').forEach((q) => {
+      conditions.push(decodeURIComponent(q.split('=')[1]));
+    });
+    console.log(conditions);
+    this.conditions = conditions;
   }
 
   onScroll() {
@@ -84,6 +105,15 @@ export default class List extends Vue {
     this.start += this.count;
     this.end += this.count;
     this.isLoading = false;
+  }
+
+  deleteCondition(conditions: string[]) {
+    this.conditions = conditions;
+    this.start = 0;
+    this.end = this.count;
+    this.lists = [];
+    this.isLoading = true;
+    window.setTimeout(this.getKeeper, 1000);
   }
 }
 </script>
