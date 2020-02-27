@@ -28,7 +28,7 @@
 .col {
   &-2 {
     flex-basis: 100%;
-    @media #{$not_sp} {
+    @media #{$pc} {
       flex-basis: 48%;
       &:nth-child(2n-1) {
         margin-right:  4%;
@@ -37,7 +37,7 @@
   }
   &-3 {
     flex-basis: 100%;
-    @media #{$not_sp} {
+    @media #{$pc} {
       flex-basis: 32%;
       margin-right: 2%;
       &:nth-child(3n) {
@@ -47,7 +47,7 @@
   }
   &-4 {
     flex-basis: 100%;
-    @media #{$not_sp} {
+    @media #{$pc} {
       flex-basis: 23.5%;
       margin-right: 2%;
       &:nth-child(4n) {

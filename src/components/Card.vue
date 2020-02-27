@@ -80,9 +80,6 @@ export default class Card extends Vue {
       .is-small & {
         flex-basis: 100%;
       }
-      @media #{$tab} {
-        flex-basis: 100%;
-      }
     }
     &-title {
       font-size: 2rem;
@@ -98,10 +95,6 @@ export default class Card extends Vue {
       }
       img {
         border-radius: 50%;
-      }
-      @media #{$tab} {
-        flex-basis: 100%;
-        margin: 0 auto 10px;
       }
     }
   }
