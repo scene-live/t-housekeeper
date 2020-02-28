@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import Logo from './Logo.vue';
 import FooterNavi from './FooterNavi.vue';
 import CopyRight from './CopyRight.vue';

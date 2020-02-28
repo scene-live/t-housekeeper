@@ -27,7 +27,7 @@ export default class SearchConditions extends Vue {
 
   @Emit('deleteCondition')
   deleteCondition(e) {
-    return this.conditions.filter((c) => c !== e.target.getAttribute('data-condition'));
+    return this.conditions.filter((c) => c !== e.target.dataset.condition);
   }
 }
 </script>
