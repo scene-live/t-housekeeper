@@ -1,7 +1,7 @@
 <template>
   <button
     :class="['btn', className ? `btn-${className}` : '']"
-    @click="onClick"
+    @click="$emit('onClick')"
   >
     <font-awesome-icon v-if="icon" :icon="icon" />
     {{ label }}
@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import {
-  Component, Prop, Vue, Emit,
+  Component, Prop, Vue,
 } from 'vue-property-decorator';
 
 @Component
@@ -20,11 +20,6 @@ export default class Button extends Vue {
   @Prop() private className!: string
 
   @Prop() private icon!: string
-
-  @Emit('onClick')
-  onClick() {
-    console.log(this.label);
-  }
 }
 </script>
 
