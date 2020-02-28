@@ -3,6 +3,7 @@
     <li class="footer-navi-item"><router-link to="/">Home</router-link></li>
     <li class="footer-navi-item"><router-link to="/about">About</router-link></li>
     <li class="footer-navi-item"><router-link to="/list">List</router-link></li>
+    <li class="footer-navi-item"><router-link to="/detail">Detail</router-link></li>
   </ul>
 </template>
 
