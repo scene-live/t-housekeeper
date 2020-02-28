@@ -1,9 +1,9 @@
 <template>
-  <div class="search" ref="search">
+  <div :class="['search', searchClassName]">
     <p class="search-show">
       <Button
         class="btn-heighlight"
-        @onClick="showSearch"
+        @onClick="toggleShowSearch"
       >詳細検索</Button>
     </p>
     <form>
@@ -89,7 +89,7 @@
       <p class="search-btn is-close">
         <Button
           class="btn-gray"
-          @onClick="closeSearch"
+          @onClick="toggleShowSearch"
         >閉じる</Button>
       </p>
     </form>
@@ -123,6 +123,8 @@ export default class Search extends Vue {
 
   jobTypeList: string[] = jobType;
 
+  showSearch = false;
+
   dp = {
     mode: 'single',
     startDate: new Date(),
@@ -143,14 +145,12 @@ export default class Search extends Vue {
     this.stationList = list.length ? list[0].stations : [];
   }
 
-  showSearch() {
-    const search = this.$refs.search as HTMLElement;
-    search.classList.add('is-shown');
+  get searchClassName() {
+    return this.showSearch ? 'is-shown' : '';
   }
 
-  closeSearch() {
-    const search = this.$refs.search as HTMLElement;
-    search.classList.remove('is-shown');
+  toggleShowSearch() {
+    this.showSearch = !this.showSearch;
   }
 }
 </script>

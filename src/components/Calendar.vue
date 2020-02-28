@@ -9,7 +9,7 @@
     />
     <Modal
       ref="modal"
-      :class="showModal ? 'is-shown' : ''"
+      :class="modalClassName"
       :date="date"
       :startTime="startTime"
       :endTime="endTime"
@@ -50,6 +50,10 @@ export default class Calendar extends Vue {
   endTime = '';
 
   showModal = false;
+
+  get modalClassName() {
+    return this.showModal ? 'is-shown' : '';
+  }
 
   eventClick(info): void {
     const { start } = info.event;
