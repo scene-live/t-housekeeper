@@ -146,11 +146,11 @@ export default class Search extends Vue {
   }
 
   get searchClassName() {
-    return this.showSearch ? 'is-shown' : '';
+    return this.$store.state.showSearch ? 'is-shown' : '';
   }
 
   toggleShowSearch() {
-    this.showSearch = !this.showSearch;
+    this.$store.commit('toggle');
   }
 }
 </script>
