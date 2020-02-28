@@ -1,11 +1,5 @@
 <template>
   <div :class="['search', searchClassName]">
-    <p class="search-show">
-      <Button
-        class="btn-heighlight"
-        @onClick="toggleShowSearch"
-      >詳細検索</Button>
-    </p>
     <form>
       <div class="search-box">
         <Select
@@ -165,14 +159,14 @@ export default class Search extends Vue {
       position: fixed;
       width: 100%;
       height: 100vh;
-      bottom: -100%;
-      left: 0;
+      top: 0;
+      left: 100%;
       z-index: map-get($zIndex, search);
       background: map-get($colors, body);
       padding: 60px 3% 10px;
       transition: .4s;
       &.is-shown {
-        bottom: 0;
+        left: 0;
       }
     }
     &-box {
@@ -201,23 +195,6 @@ export default class Search extends Vue {
       > * {
         flex-basis: 50%;
         margin-bottom: 5px;
-      }
-    }
-    &-show {
-      display: none;
-      @media #{$sp} {
-        display: block;
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        padding: 10px 3%;
-        background: rgba(0, 0, 0, .8);
-        opacity: 1;
-        transition: opacity .4;
-        .is-shown & {
-          opacity: 0;
-        }
       }
     }
     &-btn {

@@ -1,0 +1,6 @@
+.is-sp {
+  display: none;
+  @media #{$sp} {
+    display: block;
+  }
+}
