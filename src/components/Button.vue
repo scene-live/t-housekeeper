@@ -35,7 +35,7 @@ export default class Button extends Vue {
     (tertiary, map-get($colors, tertiary)),
     (heighlight, map-get($colors, heighlight)),
     (gray, map-get($colors, #ccc)),
-    (disabled, #ccc);
+    (disabled, #2C3E50);
   .btn {
     display: block;
     width: 100%;
@@ -48,6 +48,10 @@ export default class Button extends Vue {
     @each $name, $color in $buttonColors {
       &-#{$name} {
         background: $color;
+        @if($name == disabled) {
+          color: #fff;
+          opacity: .65;
+        }
         @if ($name == tertiary or $name == disabled) {
           color: #fff;
         }

@@ -1,13 +1,19 @@
 <template>
   <div>
-
     <FullCalendar
       defaultView="timeGridWeek"
-      timeZone="Asia/Tokyo"
       :plugins="calendarPlugins"
       :header="header"
       :events="eventList"
       @eventClick="eventClick"
+    />
+    <Modal
+      ref="modal"
+      :className="showModal ? 'is-shown' : ''"
+      :date="date"
+      :startTime="startTime"
+      :endTime="endTime"
+      @resetShowModal="resetShowModal"
     />
   </div>
 </template>
@@ -18,10 +24,12 @@ import FullCalendar from '@fullcalendar/vue';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { events } from '@/data/data';
+import Modal from '@/components/Modal.vue';
 
 @Component({
   components: {
     FullCalendar,
+    Modal,
   },
 })
 export default class Calendar extends Vue {
@@ -35,15 +43,30 @@ export default class Calendar extends Vue {
 
   eventList = events;
 
+  date = '';
+
+  startTime = '';
+
+  endTime = '';
+
+  showModal = false;
+
   eventClick(info): void {
-    this.showModal(info.event.start, info.event.end);
+    const { start } = info.event;
+    const { end } = info.event;
+
+    this.date = `${start.getFullYear()}/${Calendar.format(start.getMonth() + 1)}/${Calendar.format(start.getDate())}`;
+    this.startTime = `${Calendar.format(start.getHours())}:${Calendar.format(start.getMinutes())}`;
+    this.endTime = `${Calendar.format(end.getHours())}:${Calendar.format(end.getMinutes())}`;
+
+    this.showModal = true;
   }
 
-  showModal(start: string, end: string): void {
-    console.log(`start: ${start}`);
-    console.log(`end: ${end}`);
-    console.log(this.header.center);
+  resetShowModal() {
+    this.showModal = false;
   }
+
+  static format = (d: number) => `00${d}`.slice(-2);
 }
 </script>
 
@@ -52,10 +75,22 @@ export default class Calendar extends Vue {
   @import '~@fullcalendar/daygrid/main.css';
   @import '~@fullcalendar/timegrid/main.css';
 
+  .fc-timeGridWeek-view {
+    .fc-day-grid {
+      display: none;
+    }
+  }
+  .fc-time-grid .fc-slats .fc-minor td {
+    border: none;
+  }
   .fc-button-primary {
     color: map-get($colors, text);
     background-color: map-get($colors, heighlight);
     border-color: map-get($colors, heighlight);
+    &:hover {
+      background-color: map-get($colors, tertiary);
+      border-color: map-get($colors, tertiary);
+    }
     &:not(:disabled) {
       &:active, &.fc-button-active {
         color: map-get($colors, text);
