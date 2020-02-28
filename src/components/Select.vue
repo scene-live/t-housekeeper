@@ -1,5 +1,5 @@
 <template>
-  <dl v-if="options.length" :class="['select-wrap', className ? className : '']">
+  <dl v-if="options.length" class="select-wrap">
     <dt class="select-label"><label>{{ label}}</label></dt>
     <dd class="select-icon">
       <select
@@ -28,8 +28,6 @@ import {
 @Component
 export default class Select extends Vue {
   @Prop() private name!: string
-
-  @Prop() private className!: string
 
   @Prop() private label!: string
 

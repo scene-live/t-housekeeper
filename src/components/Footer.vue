@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-inner">
-      <Logo className="footer-logo" />
+      <Logo class="footer-logo" />
       <FooterNavi />
       <CopyRight />
     </div>

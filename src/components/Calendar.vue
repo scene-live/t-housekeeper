@@ -9,7 +9,7 @@
     />
     <Modal
       ref="modal"
-      :className="showModal ? 'is-shown' : ''"
+      :class="showModal ? 'is-shown' : ''"
       :date="date"
       :startTime="startTime"
       :endTime="endTime"

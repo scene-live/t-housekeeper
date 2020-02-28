@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['modal-wrap', className ? className : '']"
+    class="modal-wrap"
     ref="modal"
     @click="closeModal"
   >
@@ -60,8 +60,6 @@ import { jobType } from '@/data/data';
   },
 })
 export default class Modal extends Vue {
-  @Prop() private className!: string
-
   @Prop() private date!: string
 
   @Prop() private startTime!: string

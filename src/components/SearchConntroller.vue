@@ -6,7 +6,7 @@
         name="sort"
         label="並び順"
         :options="['新着', 'レビュー', 'レビュー数']"
-        className="is-horizon"
+        class="is-horizon"
       />
     </div>
   </div>
