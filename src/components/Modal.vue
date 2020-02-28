@@ -30,17 +30,15 @@
       <ul>
         <li>
           <Button
-            label="閉じる"
-            className="disabled"
+            class="btn-disabled"
             @onClick="closeModal"
-          />
+          >閉じる</Button>
         </li>
         <li>
           <Button
-            label="登録"
-            className="heighlight"
+            class="btn-heighlight"
             @onClick="register"
-          />
+          >登録</Button>
         </li>
       </ul>
     </div>

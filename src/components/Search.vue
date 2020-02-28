@@ -2,10 +2,9 @@
   <div class="search" ref="search">
     <p class="search-show">
       <Button
-          label="詳細検索"
-          className="heighlight"
-          @onClick="showSearch"
-        />
+        class="btn-heighlight"
+        @onClick="showSearch"
+      >詳細検索</Button>
     </p>
     <form>
       <div class="search-box">
@@ -81,17 +80,17 @@
       </dl>
       <p class="search-btn">
         <Button
-          label="検索"
-          className="heighlight"
-          icon="search"
-        />
+          class="btn-heighlight"
+        >
+          <font-awesome-icon icon="search" />
+          検索
+        </Button>
       </p>
       <p class="search-btn is-close">
         <Button
-          label="閉じる"
-          className="gray"
+          class="btn-gray"
           @onClick="closeSearch"
-        />
+        >閉じる</Button>
       </p>
     </form>
   </div>

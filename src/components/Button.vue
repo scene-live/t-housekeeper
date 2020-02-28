@@ -1,26 +1,17 @@
 <template>
   <button
-    :class="['btn', className ? `btn-${className}` : '']"
+    class="btn"
     @click="$emit('onClick')"
   >
-    <font-awesome-icon v-if="icon" :icon="icon" />
-    {{ label }}
+    <slot></slot>
   </button>
 </template>
 
 <script lang="ts">
-import {
-  Component, Prop, Vue,
-} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Button extends Vue {
-  @Prop() private label!: string
-
-  @Prop() private className!: string
-
-  @Prop() private icon!: string
-}
+export default class Button extends Vue {}
 </script>
 
 <style lang="scss" scoped>
