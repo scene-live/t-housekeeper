@@ -81,6 +81,7 @@ export default class List extends Vue {
 
     const conditions: string[] = [];
     queries.split('&').forEach((q) => {
+      if (!q.split('=')[1]) return;
       conditions.push(decodeURIComponent(q.split('=')[1]));
     });
     console.log(conditions);
