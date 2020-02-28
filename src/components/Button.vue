@@ -21,7 +21,7 @@ export default class Button extends Vue {}
     (tertiary, map-get($colors, tertiary)),
     (heighlight, map-get($colors, heighlight)),
     (gray, map-get($colors, #ccc)),
-    (disabled, #2C3E50);
+    (disabled, map-get($colors, disabled));
   .btn {
     display: block;
     width: 100%;

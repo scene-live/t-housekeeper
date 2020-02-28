@@ -2,6 +2,7 @@
   <div>
     <FullCalendar
       defaultView="timeGridWeek"
+      locale="ja"
       :plugins="calendarPlugins"
       :header="header"
       :events="eventList"
@@ -92,8 +93,10 @@ export default class Calendar extends Vue {
     background-color: map-get($colors, heighlight);
     border-color: map-get($colors, heighlight);
     &:hover {
-      background-color: map-get($colors, tertiary);
-      border-color: map-get($colors, tertiary);
+      color: map-get($colors, text);
+      background-color: map-get($colors, heighlight);
+      border-color: map-get($colors, heighlight);
+      opacity: .8;
     }
     &:not(:disabled) {
       &:active, &.fc-button-active {
@@ -103,9 +106,12 @@ export default class Calendar extends Vue {
       }
     }
     &:disabled {
-        color: map-get($colors, base);
-        background-color: map-get($colors, disabled);
-        border-color: map-get($colors, disabled);
+      color: map-get($colors, base);
+      background-color: map-get($colors, disabled);
+      border-color: map-get($colors, disabled);
+      &:hover {
+        opacity: .65;
+      }
     }
   }
   .fc-event {
@@ -115,6 +121,31 @@ export default class Calendar extends Vue {
     cursor: pointer;
     &:hover {
       color: map-get($colors, text);
+    }
+  }
+
+  @media #{$sp} {
+    .fc-toolbar > * > :first-child {
+      margin-bottom: 5px;
+    }
+    .fc-toolbar > * > :not(:first-child) {
+      margin-left: 0;
+    }
+    .fc-left {
+      width: 82px;
+    }
+    .fc-center {
+      font-size: 1.2rem;
+    }
+    .fc-right {
+      text-align: right;
+      width: 61px;
+    }
+    .fc-axis {
+      display: none;
+    }
+    .fc-day-header {
+      font-size: 1.2rem;
     }
   }
 </style>
