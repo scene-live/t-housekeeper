@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <a href="#">
+    <a href="/#/detail">
       <header class="card-header">
         <p class="card-image"><img :src="image" :alt="name"></p>
         <div class="card-info">
