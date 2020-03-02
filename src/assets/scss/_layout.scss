@@ -17,7 +17,7 @@
   }
   &-main {
     flex-basis: 100%;
-    @media #{$not_sp} {
+    @media #{$pc} {
       flex-basis: 70%;
       &.is-full {
         flex-basis: 100%;
@@ -29,7 +29,7 @@
   }
   &-side {
     flex-basis: 100%;
-    @media #{$not_sp} {
+    @media #{$pc} {
       min-height: 50vh;
       flex-basis: 28%;
     }

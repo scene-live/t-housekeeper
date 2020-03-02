@@ -154,10 +154,10 @@ export default class Search extends Vue {
 <style lang="scss" scoped>
   .search {
     position: sticky;
-    @media #{$not_sp} {
+    @media #{$pc} {
       top: 60px;
     }
-    @media #{$sp} {
+    @media #{$not_pc} {
       position: fixed;
       width: 100%;
       height: 100vh;
@@ -177,7 +177,7 @@ export default class Search extends Vue {
           margin-bottom: 15px;
         }
       }
-      @media #{$not_sp} {
+      @media #{$pc} {
         &.is-close {
           display: none;
         }

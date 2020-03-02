@@ -1,6 +1,8 @@
-.is-sp {
-  display: none;
-  @media #{$sp} {
-    display: block;
+.is {
+  &-sp {
+    display: none;
+    @media #{$not_pc} {
+      display: block;
+    }
   }
 }
