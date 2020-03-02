@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
     <section class="detail-header">
-      <p class="detail-image"><img src="/boy.svg" alt=""></p>
+      <p class="detail-image"><img src="/t-housekeeper/boy.svg" alt=""></p>
       <div class="detail-info">
         <h1 class="detail-name">多賀 亮</h1>
         <Stars class="stars-detail" star="4" half="true" />
@@ -60,7 +60,7 @@
       <Review
         name="川上 竜平"
         date="2020/03/03"
-        image="/female.svg"
+        image="/t-housekeeper/female.svg"
         stars="5"
         half="false"
         review="いつも美味しいご飯を作ってもらっています。"
@@ -68,7 +68,7 @@
       <Review
         name="多賀 ryo"
         date="2020/03/03"
-        image="/maturewoman.svg"
+        image="/t-housekeeper/maturewoman.svg"
         stars="4"
         half="true"
         review="綺麗に掃除してくれます。"
