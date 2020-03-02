@@ -77,7 +77,7 @@
           class="btn-heighlight"
         >
           <font-awesome-icon icon="search" />
-          検索
+          検索する
         </Button>
       </p>
       <p class="search-btn is-close">

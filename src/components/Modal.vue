@@ -39,7 +39,7 @@
             <Button
               class="btn-heighlight"
               @onClick="register"
-            >登録</Button>
+            >登録する</Button>
           </li>
           <li class="modal-btns-item">
             <Button
