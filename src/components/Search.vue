@@ -1,6 +1,6 @@
 <template>
   <div :class="['search', searchClassName]">
-    <form>
+    <form action="http://localhost:8080/#/list">
       <div class="search-box">
         <Select
           name="pref"
