@@ -1,4 +1,6 @@
 module.exports = {
+  publicPath: '/t-housekeeper/',
+  outputDir: 'docs',
   css: {
     loaderOptions: {
       scss: {
