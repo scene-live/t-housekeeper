@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Message from '../views/Message.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,12 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: () => import(/* webpackChunkName: "detail" */ '../views/Detail.vue'),
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: Message,
+    // component: () => import(/* webpackChunkName: "message" */ '../views/Message.vue'),
   },
 ];
 
