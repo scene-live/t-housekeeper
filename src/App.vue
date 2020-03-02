@@ -1,20 +1,7 @@
 <template>
   <div id="app">
     <Header />
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/list">List</router-link> |
-      <router-link to="/detail">Detail</router-link>
-    </div>
-    <div class="l-contents">
-      <div :class="['l-main', this.$route.name === 'Home' ? 'is-full' : '']">
-        <router-view/>
-      </div>
-      <aside v-if="this.$route.name !== 'Home'" class="l-side">
-        <Search />
-      </aside>
-    </div>
+    <component v-bind:is="getLayout()"></component>
     <Footer />
   </div>
 </template>
@@ -24,15 +11,23 @@ import { Component, Vue } from 'vue-property-decorator';
 import Header from '@/components/Header.vue';
 import Search from '@/components/Search.vue';
 import Footer from '@/components/Footer.vue';
+import Default from '@/layouts/Default.vue';
+import Full from '@/layouts/Full.vue';
 
 @Component({
   components: {
     Header,
     Search,
     Footer,
+    Default,
+    Full,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  getLayout() {
+    return this.$route.meta.layout ? this.$route.meta.layout : 'default';
+  }
+}
 </script>
 
 <style lang="scss">

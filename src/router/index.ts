@@ -34,6 +34,7 @@ const routes = [
     name: 'Message',
     component: Message,
     // component: () => import(/* webpackChunkName: "message" */ '../views/Message.vue'),
+    meta: { layout: 'full' },
   },
 ];
 

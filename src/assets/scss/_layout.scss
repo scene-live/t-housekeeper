@@ -10,12 +10,19 @@
       flex-direction: row-reverse;
       padding: 20px 0;
     }
+    &.is-full {
+      padding: 0;
+      max-width: 100%;
+    }
   }
   &-main {
     flex-basis: 100%;
     @media #{$not_sp} {
       flex-basis: 70%;
       &.is-full {
+        flex-basis: 100%;
+      }
+      &.is-message {
         flex-basis: 100%;
       }
     }
