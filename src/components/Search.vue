@@ -20,58 +20,58 @@
           :options="stationList"
         />
       </div>
-      <dl class="search-box">
-        <dt class="search-box-label"><label>作業内容</label></dt>
-        <dd class="search-check">
-          <CheckBox
+      <FormItem
+        label="作業内容"
+        isFlex="true"
+        isCheck="true"
+      >
+        <CheckBox
             v-for="(job, index) in jobTypeList"
             :key="index"
             :id="`job-${index}`"
             name="job"
             :label="job"
           />
-        </dd>
-      </dl>
-      <dl class="search-box">
-        <dt class="search-box-label"><label>希望日</label></dt>
-        <dd class="search-date">
-          <p class="search-date-input">
-            <v-date-picker
-              :mode="dp.mode"
-              :popover="dp.popover"
-              :formats="dp.input"
-              v-model="dp.startDate">
-            </v-date-picker>
-          </p>
-          &nbsp;〜&nbsp;
-          <p class="search-date-input">
-            <v-date-picker
-              :mode="dp.mode"
-              :popover="dp.popover"
-              :formats="dp.input"
-              v-model="dp.endDate">
-            </v-date-picker>
-          </p>
-        </dd>
-      </dl>
-      <dl class="search-box">
-        <dt class="search-box-label"><label>性別</label></dt>
-        <dd class="search-check">
-          <CheckBox
-            v-for="(sex, index) in ['男性', '女性']"
-            :key="index"
-            :id="`sex-${index}`"
-            name="sex"
-            :label="sex"
-          />
-        </dd>
-      </dl>
-      <dl class="search-box">
-        <dt class="search-box-label"><label>フリーワード</label></dt>
-        <dd>
-          <InputText name="q" placeholder="フリーワード" />
-        </dd>
-      </dl>
+      </FormItem>
+      <FormItem
+        label="希望日"
+        isFlex="true"
+        isDate="true"
+      >
+        <p class="search-date-input">
+          <v-date-picker
+            :mode="dp.mode"
+            :popover="dp.popover"
+            :formats="dp.input"
+            v-model="dp.startDate">
+          </v-date-picker>
+        </p>
+        &nbsp;〜&nbsp;
+        <p class="search-date-input">
+          <v-date-picker
+            :mode="dp.mode"
+            :popover="dp.popover"
+            :formats="dp.input"
+            v-model="dp.endDate">
+          </v-date-picker>
+        </p>
+      </FormItem>
+      <FormItem
+        label="性別"
+        isFlex="true"
+        isCheck="true"
+      >
+        <CheckBox
+          v-for="(sex, index) in ['男性', '女性']"
+          :key="index"
+          :id="`sex-${index}`"
+          name="sex"
+          :label="sex"
+        />
+      </FormItem>
+      <FormItem label="フリーワード">
+        <InputText name="q" placeholder="フリーワード" />
+      </FormItem>
       <p class="search-btn">
         <Button
           class="btn-heighlight"
@@ -95,6 +95,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import {
   prefs, lines, stations, jobType,
 } from '@/data/data';
+import FormItem from '@/components/FormItem.vue';
 import Select from '@/components/Select.vue';
 import CheckBox from '@/components/CheckBox.vue';
 import InputText from '@/components/InputText.vue';
@@ -102,6 +103,7 @@ import Button from '@/components/Button.vue';
 
 @Component({
   components: {
+    FormItem,
     Select,
     CheckBox,
     InputText,
@@ -167,34 +169,6 @@ export default class Search extends Vue {
       transition: .4s;
       &.is-shown {
         left: 0;
-      }
-    }
-    &-box {
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid map-get($colors, tertiary);
-      &:last-of-type {
-        border-bottom: none;
-      }
-      &-label {
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-    }
-    &-date {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      &-input {
-        flex-basis: 45%;
-      }
-    }
-    &-check {
-      display: flex;
-      flex-wrap: wrap;
-      > * {
-        flex-basis: 50%;
-        margin-bottom: 5px;
       }
     }
     &-btn {
