@@ -42,10 +42,6 @@ export default class Card extends Vue {
   @Prop() private comment!: string
 
   @Prop() private disabled!: string[]
-
-  mounted() {
-    console.log(this.image);
-  }
 }
 </script>
 
