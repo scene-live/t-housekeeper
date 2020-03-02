@@ -1,6 +1,5 @@
 <template>
-  <div class="">
-  </div>
+  <h1>This is an top page</h1>
 </template>
 
 <script lang="ts">
