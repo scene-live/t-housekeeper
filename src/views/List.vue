@@ -1,28 +1,23 @@
 <template>
-  <div class="list">
-    <main class="l-main">
-      <SearchConditions
+  <div>
+    <SearchConditions
         :conditions="conditions"
         @deleteCondition="deleteCondition"
       />
-      <SearchConntroller />
-      <div class="l-container">
-        <Card
-          class="col-2"
-          v-for="(list, index) in lists"
-          :key="index"
-          :name="list.name"
-          :image="list.image"
-          :comment="list.comment"
-          :disabled="list.disabled"
-        />
-        <Loading :isLoading="isLoading"/>
-        <div v-keeper-scroll="onScroll"></div>
-      </div>
-    </main>
-    <aside class="l-side">
-      <Search />
-    </aside>
+    <SearchConntroller />
+    <div class="l-list">
+      <Card
+        class="col-2"
+        v-for="(list, index) in lists"
+        :key="index"
+        :name="list.name"
+        :image="list.image"
+        :comment="list.comment"
+        :disabled="list.disabled"
+      />
+      <Loading :isLoading="isLoading"/>
+      <div v-keeper-scroll="showKeepers"></div>
+    </div>
   </div>
 </template>
 
@@ -31,8 +26,6 @@ import { Component, Vue } from 'vue-property-decorator';
 import { housekeepers } from '@/data/data';
 import SearchConntroller from '@/components/SearchConntroller.vue';
 import Card from '@/components/Card.vue';
-import Search from '@/components/Search.vue';
-import Select from '@/components/Select.vue';
 import Loading from '@/components/Loading.vue';
 import SearchConditions from '@/components/SearchConditions.vue';
 
@@ -47,12 +40,10 @@ interface Keeper {
 @Component({
   name: 'List',
   components: {
+    SearchConditions,
     SearchConntroller,
     Card,
-    Search,
-    Select,
     Loading,
-    SearchConditions,
   },
 })
 export default class List extends Vue {
@@ -84,11 +75,10 @@ export default class List extends Vue {
       if (!q.split('=')[1]) return;
       conditions.push(decodeURIComponent(q.split('=')[1]));
     });
-    console.log(conditions);
     this.conditions = conditions;
   }
 
-  onScroll() {
+  showKeepers() {
     if (window.pageYOffset >= this.scrollY && !this.isLoading) {
       this.isLoading = true;
       this.scrollY = window.innerHeight + window.pageYOffset;
@@ -120,11 +110,7 @@ export default class List extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  .list {
-    @include inner;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row-reverse;
+  .show {
+    background: red;
   }
 </style>

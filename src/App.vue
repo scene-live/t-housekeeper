@@ -8,7 +8,12 @@
       <router-link to="/detail">Detail</router-link>
     </div>
     <div class="l-contents">
-      <router-view/>
+      <div :class="['l-main', this.$route.name === 'Home' ? 'is-full' : '']">
+        <router-view/>
+      </div>
+      <aside v-if="this.$route.name !== 'Home'" class="l-side">
+        <Search />
+      </aside>
     </div>
     <Footer />
   </div>
@@ -16,12 +21,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
+import Header from '@/components/Header.vue';
+import Search from '@/components/Search.vue';
+import Footer from '@/components/Footer.vue';
 
 @Component({
   components: {
     Header,
+    Search,
     Footer,
   },
 })
