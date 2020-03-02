@@ -37,7 +37,13 @@
         <ul class="modal-btns">
           <li class="modal-btns-item">
             <Button
-              class="btn-heighlight"
+              ref="register"
+              :class="[
+                'btn-heighlight',
+                'btn-register',
+                isAnimating ? 'is-animating' : '',
+                isSuccess ? 'is-success' : '',
+              ]"
               @onClick="register"
             >登録する</Button>
           </li>
@@ -84,10 +90,16 @@ export default class Modal extends Vue {
 
   errors: string[] = [];
 
+  isAnimating = false;
+
+  isSuccess = false;
+
   @Emit('resetShowModal')
   closeModal() {
     const modal = this.$refs.modal as HTMLElement;
     modal.classList.remove('is-shown');
+    this.isAnimating = false;
+    this.isSuccess = false;
   }
 
   addJob(job: string) {
@@ -104,8 +116,13 @@ export default class Modal extends Vue {
       this.errors.push('選択してください。');
       return;
     }
-    console.log('register!!');
-    // this.closeModal();
+    this.isAnimating = true;
+    window.setTimeout(this.done, 3000);
+    window.setTimeout(this.closeModal, 4500);
+  }
+
+  done() {
+    this.isSuccess = true;
   }
 }
 </script>
