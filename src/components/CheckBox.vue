@@ -6,21 +6,34 @@
       :id="id"
       :name="name"
       :value="label"
+      v-model="jobs"
+      @change="add"
     />
     <label :for="id" class="checkbox-label">{{ label }}</label>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component, Prop, Vue, Emit,
+} from 'vue-property-decorator';
 
 @Component
 export default class CheckBox extends Vue {
-  @Prop()private id!: string
+  @Prop() private id!: string
 
-@Prop()private name!: string
+  @Prop() private name!: string
 
-  @Prop()private label!: string
+  @Prop() private label!: string
+
+  @Prop() private checkedJob!: []
+
+  jobs = [];
+
+  @Emit('addJob')
+  add() {
+    return this.jobs[0];
+  }
 }
 </script>
 

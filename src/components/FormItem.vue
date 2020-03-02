@@ -1,6 +1,9 @@
 <template>
   <dl class="form-item">
-    <dt class="form-item-label">{{ label }}</dt>
+    <dt class="form-item-label">
+      {{ label }}
+      <span v-if="isRequired" class="is-required">※</span>
+    </dt>
     <dd
       :class="['form-item-content',
         isFlex ? 'is-flex' : '',
@@ -25,6 +28,8 @@ export default class FormItem extends Vue {
   @Prop() private isCheck?: boolean
 
   @Prop() private isDate?: boolean
+
+  @Prop() private isRequired?: boolean
 }
 </script>
 
@@ -33,13 +38,18 @@ export default class FormItem extends Vue {
     padding-bottom: 15px;
     margin-bottom: 15px;
     border-bottom: 1px solid map-get($colors, tertiary);
+    font-size: 1.6rem;
     &:last-of-type {
       border-bottom: none;
     }
     &-label {
       font-weight: bold;
-      font-size: 1.6rem;
       margin-bottom: 5px;
+    }
+    .is-required {
+      color: map-get($colors, attention);
+      position: relative;
+      top: -2px;
     }
     &-content {
       &.is-flex {

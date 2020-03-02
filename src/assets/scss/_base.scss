@@ -79,6 +79,11 @@ input {
   }
 }
 
+textarea {
+  @include formElements;
+
+}
+
 label {
   font-size: 1.6rem;
 }
