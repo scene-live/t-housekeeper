@@ -58,6 +58,16 @@ export default class Card extends Vue {
     box-shadow: 0 0 1px 1px rgba(20, 20, 20, .1);
     width: 100%;
     margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 1.6s;
+    &:nth-child(odd) {
+      transition: .8s;
+    }
+    &.is-shown {
+      opacity: 1;
+      transform: translateY(0);
+    }
     a {
       display: block;
       @media #{$not_sp} {

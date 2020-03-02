@@ -7,13 +7,14 @@
     <SearchConntroller />
     <div class="l-list">
       <Card
-        class="col-2"
+        :class="['col-2', index < 6 ? 'is-shown' : '']"
         v-for="(list, index) in lists"
         :key="index"
         :name="list.name"
         :image="list.image"
         :comment="list.comment"
         :disabled="list.disabled"
+        v-keeper-scroll="showCard"
       />
       <Loading :isLoading="isLoading"/>
       <div v-keeper-scroll="showKeepers"></div>
@@ -61,6 +62,8 @@ export default class List extends Vue {
 
   conditions: string[] = [];
 
+  showCardHeight = window.innerHeight * 0.8;
+
   mounted() {
     this.getKeeper();
     this.getConditions();
@@ -76,6 +79,10 @@ export default class List extends Vue {
       conditions.push(decodeURIComponent(q.split('=')[1]));
     });
     this.conditions = conditions;
+  }
+
+  showCard(event: Event, element: HTMLElement) {
+    if (window.scrollY + this.showCardHeight >= element.offsetTop) element.classList.add('is-shown');
   }
 
   showKeepers() {
@@ -109,8 +116,4 @@ export default class List extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-  .show {
-    background: red;
-  }
-</style>
+<style lang="scss" scoped></style>
