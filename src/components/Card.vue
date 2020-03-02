@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <a href="/t-housekeeper/#/detail">
+    <router-link to="/detail">
       <header class="card-header">
         <p class="card-image"><img :src="image" :alt="name" width="150" height="150"></p>
         <div class="card-info">
@@ -17,7 +17,7 @@
         :disabled="disabled"
       />
       <p class="card-comment">{{ comment }}</p>
-    </a>
+    </router-link>
   </div>
 </template>
 

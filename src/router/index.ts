@@ -6,11 +6,11 @@ import Message from '../views/Message.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home,
+  // },
   {
     path: '/about',
     name: 'About',
@@ -20,7 +20,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
   {
-    path: '/list',
+    path: '/',
     name: 'List',
     component: () => import(/* webpackChunkName: "list" */ '../views/List.vue'),
   },
