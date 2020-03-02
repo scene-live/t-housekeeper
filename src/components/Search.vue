@@ -1,6 +1,6 @@
 <template>
   <div :class="['search', searchClassName]">
-    <form action="http://localhost:8080/#/list">
+    <form action="/t-housekeeper/#/">
       <div class="search-box">
         <Select
           name="pref"
