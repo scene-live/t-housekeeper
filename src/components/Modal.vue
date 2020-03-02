@@ -112,7 +112,7 @@ export default class Modal extends Vue {
 
 <style lang="scss" scoped>
   .modal {
-    background: #fff;
+    background: map-get($colors, body);
     border-radius: 10px;
     width: 94%;
     height: 94%;
