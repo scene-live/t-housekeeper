@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <a href="/#/detail">
+    <a href="/t-housekeeper/#/detail">
       <header class="card-header">
         <p class="card-image"><img :src="image" :alt="name" width="150" height="150"></p>
         <div class="card-info">
