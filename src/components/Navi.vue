@@ -7,10 +7,10 @@
       >
         <a href="#" title="検索"><font-awesome-icon icon="search" /></a>
       </li>
-      <li class="navi-item">
-        <a href="#" title="メッセージ"><font-awesome-icon icon="envelope" /></a>
+      <li class="navi-item" title="メッセージ">
+        <router-link to="/message"><font-awesome-icon icon="envelope" /></router-link>
       </li>
-      <li class="navi-item">
+      <li class="navi-item" title="マイページ">
         <a href="#" title="マイページ"><font-awesome-icon icon="user" /></a>
       </li>
     </ul>
