@@ -2,7 +2,7 @@
   <div class="card">
     <a href="/#/detail">
       <header class="card-header">
-        <p class="card-image"><img :src="image" :alt="name"></p>
+        <p class="card-image"><img :src="image" :alt="name" width="150" height="150"></p>
         <div class="card-info">
           <h1 class="card-title">{{ name }}</h1>
           <Stars  star="4" half="true" />
@@ -42,6 +42,10 @@ export default class Card extends Vue {
   @Prop() private comment!: string
 
   @Prop() private disabled!: string[]
+
+  mounted() {
+    console.log(this.image);
+  }
 }
 </script>
 
