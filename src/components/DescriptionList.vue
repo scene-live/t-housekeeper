@@ -38,5 +38,10 @@ export default class DescriptionList extends Vue {
         flex-basis: calc(100% - 6em);
       }
     }
+    &-detail {
+      @media #{$not_sp} {
+        font-size: 1.8rem;
+      }
+    }
   }
 </style>

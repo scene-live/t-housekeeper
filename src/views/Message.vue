@@ -12,11 +12,12 @@
       </li>
     </ul>
     <div :class="['message-contents', shownMessage ? 'is-shown' : '']">
+      <p class="message-history-close is-sp" @click="closeMessage">
+        <font-awesome-icon icon="angle-left"></font-awesome-icon>
+        <span>back</span>
+      </p>
       <div class="message-history" ref="history">
-        <p class="has-noMessage" v-if="histories.length < 1">メッセージはまだありません。</p>
-        <p class="message-history-close is-sp" @click="closeMessage">
-          <font-awesome-icon icon="angle-left"></font-awesome-icon>
-        </p>
+        <div class=" message-box has-noMessage" v-if="histories.length < 1">メッセージはまだありません。</div>
         <div
           class="message-box"
           v-for="(history, index) in histories"
@@ -119,9 +120,12 @@ export default class Message extends Vue {
 <style lang="scss" scoped>
   $naviWidth: 300px;
   $inputHeight: 264px;
+  $headerHeight: 50px;
+  $footerHeight: 84px;
+
   .message {
     &-wrap {
-      height: calc(100vh - (30px + 84px));
+      height: calc(100vh - (#{$headerHeight} + #{$footerHeight}));
       display: flex;
       @media #{$sp} {
         position: relative;
@@ -192,6 +196,7 @@ export default class Message extends Vue {
       height: 100%;
       @media #{$sp} {
         flex-basis: 100%;
+        width: 100%;
         position: absolute;
         background: map-get($colors, body);
         top: 0;
@@ -204,23 +209,42 @@ export default class Message extends Vue {
     }
     &-history {
       border-bottom: 2px solid #ccc;
-      height: calc(100vh - #{$inputHeight} - 60px - 84px);
+      height: calc(100vh - #{$inputHeight} - (#{$headerHeight} + #{$footerHeight}));
       overflow-y: scroll;
-      position: relative;
-      .has-noMessage {
-        padding: 10px 20px;
-        font-weight: bold;
+      @media #{$sp} {
+        position: relative;
+        padding-top: 43px;
       }
       &-close {
-        padding: 5px 20px 0;
-        font-size:2.53rem;
-        border-bottom: 1px solid #ccc;
-        cursor: pointer;
+        @media #{$sp} {
+          display: flex;
+          position: absolute;
+          width: 100%;
+          top: 0;
+          left: 0;
+          font-size: 1.65rem;
+          padding: 10px 20px 10px;
+          border-bottom: 1px solid #ccc;
+          background: map-get($colors, base);
+          z-index: map-get($zIndex, closeMessage);
+          align-items: center;
+          svg {
+            font-size:2.5rem;
+          }
+          span {
+            margin-left: .5em;
+          }
+        }
       }
     }
     &-box {
       padding: 10px 20px;
       border-bottom: 1px solid #ccc;
+      &.has-noMessage {
+        padding: 10px 20px;
+        font-weight: bold;
+        border-bottom: none;
+      }
       &-header {
         display: flex;
         justify-content: space-between;
@@ -238,7 +262,9 @@ export default class Message extends Vue {
       padding: 10px 20px;
     }
     &-btn {
-      width: 200px;
+      @media #{$not_sp} {
+        width: 200px;
+      }
     }
   }
 </style>

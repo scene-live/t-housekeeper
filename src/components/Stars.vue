@@ -26,5 +26,10 @@ export default class Stars extends Vue {
     path {
       fill: map-get($colors, heighlight);
     }
+    &-detail {
+      @media #{$not_sp} {
+        font-size: 1.8rem;
+      }
+    }
   }
 </style>
