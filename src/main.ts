@@ -14,6 +14,7 @@ import {
   faLightbulb,
   faFileSignature,
   faCheck,
+  faAngleLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
@@ -34,6 +35,7 @@ library.add(
   faLightbulb,
   faFileSignature,
   faCheck,
+  faAngleLeft,
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(VCalendar);
