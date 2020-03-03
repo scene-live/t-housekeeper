@@ -113,7 +113,10 @@ export default class Modal extends Vue {
 
   register() {
     if (this.jobs.length < 1) {
-      this.errors.push('選択してください。');
+      const errorMessage = '選択してください。';
+      if (!this.errors.some((e) => e === errorMessage)) {
+        this.errors.push(errorMessage);
+      }
       return;
     }
     this.isAnimating = true;
