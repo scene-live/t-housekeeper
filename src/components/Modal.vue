@@ -100,6 +100,7 @@ export default class Modal extends Vue {
     modal.classList.remove('is-shown');
     this.isAnimating = false;
     this.isSuccess = false;
+    this.errors = [];
   }
 
   addJob(job: string) {
